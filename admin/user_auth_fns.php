@@ -50,4 +50,26 @@
 			return 0;
 		}
 	}
+
+	function check_permission($username, $storyID){
+		//Check if user has permission to act on per story
+		$conn = db_connect();
+		if (!$conn){
+			return 0;
+		}
+		if (!$_SESSION['auth_user']){
+			return 0;
+		}
+		$query = "select * from writer_permissions wp, stories s where wp.page= s.page and wp.writer = s.writer and s.id = $storyID";
+		$result = mysqli_query($conn, $query);
+
+		if (!$result){
+			return 0;
+		}
+		if (mysqli_num_rows($result) > 0){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
 ?>

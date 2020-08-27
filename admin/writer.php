@@ -27,7 +27,7 @@
 			# code...
 			echo '<table>';
 			echo '<tr><th>Headline</th><th>Page</th>';
-			echo '<th>Created></th><th>Last modified</th></tr>';
+			echo '<th>Created</th><th>Last modified</th></tr>';
 
 			while ($stories = mysqli_fetch_assoc($result)){
 				# code ...
